@@ -3,9 +3,7 @@ var { createProxyMiddleware } = require('http-proxy-middleware');
 var cors = require('cors');
 var app = express();
 app.use(cors());
-app.use(express.static(__dirname + '/../public'));
-
-console.log('cpm', createProxyMiddleware)
+app.use('/:id', express.static(__dirname + '/../public'));
 
 var port = 3004;
 
@@ -17,7 +15,7 @@ app.use('/:id/similar/:id', createProxyMiddleware({
   target: 'http://localhost:3001/',
   changeOrigin: true,
 }));
-app.use('/reviews', createProxyMiddleware({
+app.use('/:id/reviews/:id', createProxyMiddleware({
   target: 'http://localhost:3002/',
   changeOrigin: true,
 }));
@@ -27,6 +25,7 @@ app.use('/:id/bag/:id', createProxyMiddleware({
 }));
 
 app.get('/', (req, res) => {
+  console.log('requrl', req.originalUrl);
   res.send('Mykea homepage');
 });
 
