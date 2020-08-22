@@ -8,19 +8,15 @@ app.use('/:id', express.static(__dirname + '/../public'));
 var port = 3004;
 
 app.use('/:id/pictures/:id', createProxyMiddleware({
-  target: 'http://localhost:3000/',
+  target: 'http://18.190.28.33:3000/',
   changeOrigin: true,
 }));
 app.use('/:id/similar/:id', createProxyMiddleware({
-  target: 'http://localhost:3001/',
+  target: 'http://52.207.78.191/',
   changeOrigin: true,
 }));
 app.use('/:id/reviews/:id', createProxyMiddleware({
-  target: 'http://localhost:3002/',
-  changeOrigin: true,
-}));
-app.use('/:id/bag/:id', createProxyMiddleware({
-  target: 'http://localhost:3003/',
+  target: 'http://18.223.24.49:3002/',
   changeOrigin: true,
 }));
 
