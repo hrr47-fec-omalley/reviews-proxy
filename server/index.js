@@ -8,7 +8,7 @@ app.use('/:id', express.static(__dirname + '/../public'));
 var port = 3004;
 
 app.use('/:id/pictures/:id', createProxyMiddleware({
-  target: 'http://18.190.28.33:3000/',
+  target: 'http://3.15.203.117:3000/',
   changeOrigin: true,
 }));
 app.use('/:id/similar/:id', createProxyMiddleware({
